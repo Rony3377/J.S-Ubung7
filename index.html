@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Static Template</title>
+    <style>
+      body {
+        background-image: linear-gradient(
+          to right,
+          rgba(135, 207, 235, 0.418),
+          rgba(255, 192, 203, 0.445),
+          rgba(255, 0, 0, 0.452),
+          rgba(128, 128, 128, 0.452),
+          rgba(255, 255, 255, 0.459),
+          rgba(135, 207, 235, 0.356),
+          rgba(255, 192, 203, 0.445)
+        );
+      }
+      img {
+        width: 300px;
+        box-shadow: rgb(167, 111, 111) 0px 0px 100px;
+      }
+      .spalte-produkt {
+        text-align: center;
+        margin: 10px;
+        padding: 10px;
+        background-color: rgb(196, 142, 142);
+      }
+      .spalte-menge {
+        text-align: center;
+        margin: 20px;
+        padding: 20px;
+        background-color: rgb(158, 126, 126);
+      }
+      .spalte-preis {
+        text-align: center;
+        margin-right: 10px;
+        padding: 10px;
+        background-color: rgb(124, 81, 81);
+        width: 100px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- HTML-Element mit id heißt box1 -->
+    <main id="box1"></main>
+    <!-- JavaScript-Code-->
+    <script>
+      // Verbindung aufbauen zum HTML-Element box1//
+      const e = document.getElementById("box1");
+      // Baustein-Funktion 1//
+      function zweiBilder(bild1, bild2) {
+        return `<div><img src="${bild1}"/> <hr> <img src="${bild2}"/><hr></div>`;
+      }
+      // Baustein-Funktion 2//
+      function tabelleAnlegen(inhalt) {
+        // Sammelvariable für die Personen-Namen
+        let info = "";
+        // Den Array durchlaufen...
+        for (let x = 0; x < inhalt.length; x++)
+          info += details(inhalt[x].produkt, inhalt[x].menge, inhalt[x].preis);
+        // Tabelle zurückgeben
+        return (
+          `<table>` +
+          `<tr><th>produkt</th><th>menge</th><th>preis</th></tr>` +
+          `${info}</table>`
+        );
+      }
+
+      function details(produkt, menge, preis) {
+        return `<tr><td class = "spalte-produkt">${produkt}</td><td class = "spalte-menge">${menge}</td><td class = "spalte-preis">${preis}</td></tr>`;
+      }
+      // Baustein-Funktion 4//
+      function karteAnlegen(bild1, bild2, tabellenInhalt) {
+        return `<div>${zweiBilder(bild1, bild2)} ${tabelleAnlegen(
+          tabellenInhalt
+        )}</div>`;
+      }
+      // Ausgabe von gruppe1//
+      const gruppe1 = [
+        {
+          bild1:
+            "https://i.pinimg.com/736x/77/a9/1b/77a91bc69ad9d2137731ba3789514387--moda-hijab-mode-style.jpg",
+
+          bild2:
+            "https://i.pinimg.com/originals/c1/d9/6c/c1d96cb985f1ddda75bad6e883be3808.jpg",
+
+          tabelle: [
+            {
+              produkt: "frauen kleidung1",
+
+              menge: 1,
+              preis: 166
+            },
+            {
+              produkt: "frauen kleidung2",
+              menge: 1,
+              preis: 150
+            }
+          ]
+        },
+        {
+          bild1:
+            "https://i.pinimg.com/originals/67/53/26/675326e446aa9c61e8006ac4062c6d39.jpg",
+
+          bild2:
+            "https://www.usa-muslim-marriage.com/wp-content/uploads/2020/12/%D9%85%D8%B7%D9%84%D9%82%D8%A9-%D9%84%D9%84%D8%B2%D9%88%D8%A7%D8%AC-%D9%85%D9%86-%D8%B1%D8%AC%D9%84-%D8%A7%D8%B9%D9%85%D8%A7%D9%84-%D9%85%D8%B9-%D8%B1%D9%82%D9%85-%D8%A7%D9%84%D9%87%D8%A7%D8%AA%D9%81-%D8%A7%D8%B1%D9%8A%D8%AF-%D8%B2%D9%88%D8%AC-%D9%85%D8%B3%D9%8A%D8%A7%D8%B1-%D9%85%D8%AD%D8%AA%D8%B1%D9%85-%D9%85%D8%AB%D9%82%D9%81-%D8%AD%D9%86%D9%88%D9%86-%D9%85%D8%B1%D8%AD-%D9%85%D9%82%D9%8A%D9%85-%D9%81%D9%8A-%D8%A8%D8%B1%D9%8A%D8%B7%D8%A7%D9%86%D9%8A%D8%A7.jpg",
+
+          tabelle: [
+            {
+              produkt: "frauen kleidung1",
+
+              menge: 1,
+              preis: 200
+            },
+            {
+              produkt: "frauen kleidung2",
+              menge: 1,
+              preis: 120
+            }
+          ]
+        },
+        {
+          bild1:
+            "https://www.sefamerve.com/image/cache/data/201812/22/sefamerve_ferace_dlbr7141_02_3775871545476958891_2-752x1152.jpg",
+
+          bild2:
+            "https://i.pinimg.com/originals/4e/3d/89/4e3d89ba6ee3be2edbe31fc1f5d75b3c.jpg",
+
+          tabelle: [
+            {
+              produkt: "frauen kleidung1",
+
+              menge: 1,
+              preis: 200
+            },
+            {
+              produkt: "frauen kleidung2",
+              menge: 1,
+              preis: 120
+            }
+          ]
+        }
+      ];
+      // Ausgabe von gruppe1 in karteAnlegen )//
+      for (let g = 0; g < gruppe1.length; g++)
+        e.innerHTML += karteAnlegen(
+          gruppe1[g].bild1,
+          gruppe1[g].bild2,
+
+          gruppe1[g].tabelle
+        );
+    </script>
+  </body>
+</html>
